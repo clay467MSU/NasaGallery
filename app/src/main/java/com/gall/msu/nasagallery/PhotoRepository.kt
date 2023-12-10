@@ -11,15 +11,12 @@ class PhotoRepository {
 
     init {
         val retrofit: Retrofit = Retrofit.Builder()
-            .baseUrl("https://api.flickr.com/")
+            .baseUrl("https://api.nasa.gov/")
             .addConverterFactory(MoshiConverterFactory.create())
             .build()
         flickrApi = retrofit.create()
     }
 
-//    suspend fun fetchPhotos(): List<GalleryItem> =
-//        flickrApi.fetchPhotos().photos.galleryItems
-
-    suspend fun fetchPhotos(page: Int, pageSize: Int): List<GalleryItem> =
-        flickrApi.fetchPhotos(page, pageSize).photos.galleryItems
+    suspend fun fetchPhotos(count: Int): List<GalleryItem> =
+        flickrApi.fetchPhotos(count).photos.galleryItems
 }

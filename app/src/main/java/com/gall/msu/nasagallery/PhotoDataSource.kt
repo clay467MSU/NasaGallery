@@ -16,10 +16,9 @@ class PhotoDataSource(
     ) {
         scope.launch {
             try {
-                val page = 1 // Initial page
-                val pageSize = params.requestedLoadSize
-                val photos = repository.fetchPhotos(page, pageSize)
-                callback.onResult(photos, null, page + 1)
+                val count = 1 // Initial page
+                val photos = repository.fetchPhotos(count)
+                callback.onResult(photos, null, count + 1)
             } catch (ex: Exception) {
                 // Handle exception
             }
@@ -32,10 +31,9 @@ class PhotoDataSource(
     ) {
         scope.launch {
             try {
-                val page = params.key
-                val pageSize = params.requestedLoadSize
-                val photos = repository.fetchPhotos(page, pageSize)
-                callback.onResult(photos, page + 1)
+                val count = params.key
+                val photos = repository.fetchPhotos(count)
+                callback.onResult(photos, count + 1)
             } catch (ex: Exception) {
                 // Handle exception
             }

@@ -6,14 +6,10 @@ import retrofit2.http.Query
 private const val API_KEY = "8a9c8c2f518267c7c1ad2b96079c6688"
 
 interface NasaApi {
-    @GET("services/rest/?method=flickr.interestingness.getList" +
-            "&api_key=$API_KEY" +
-            "&format=json" +
-            "&nojsoncallback=1" +
-            "&extras=url_s")
+    @GET("planetary/aprod?" +
+            "api_key=$API_KEY")
     suspend fun fetchPhotos(
-        @Query("page") page: Int,
-        @Query("per_page") perPage: Int
+        @Query("count") count: Int,
     ): NasaResponse
 
 }
