@@ -7,16 +7,16 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.create
 
 class PhotoRepository {
-    private val flickrApi: NasaApi
+    private val nasaApi: NasaApi
 
     init {
         val retrofit: Retrofit = Retrofit.Builder()
             .baseUrl("https://api.nasa.gov/")
             .addConverterFactory(MoshiConverterFactory.create())
             .build()
-        flickrApi = retrofit.create()
+        nasaApi = retrofit.create()
     }
 
     suspend fun fetchPhotos(count: Int): List<GalleryItem> =
-        flickrApi.fetchPhotos(count).photos.galleryItems
+        nasaApi.fetchPhotos(count).photos.galleryItems
 }
