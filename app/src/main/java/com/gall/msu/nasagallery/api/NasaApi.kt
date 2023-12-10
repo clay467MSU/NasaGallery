@@ -5,7 +5,7 @@ import retrofit2.http.Query
 
 private const val API_KEY = "8a9c8c2f518267c7c1ad2b96079c6688"
 
-interface FlickrApi {
+interface NasaApi {
     @GET("services/rest/?method=flickr.interestingness.getList" +
             "&api_key=$API_KEY" +
             "&format=json" +
@@ -14,6 +14,6 @@ interface FlickrApi {
     suspend fun fetchPhotos(
         @Query("page") page: Int,
         @Query("per_page") perPage: Int
-    ): FlickrResponse
+    ): NasaResponse
 
 }

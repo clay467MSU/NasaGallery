@@ -1,13 +1,13 @@
 package com.gall.msu.nasagallery
 
-import com.gall.msu.nasagallery.api.FlickrApi
+import com.gall.msu.nasagallery.api.NasaApi
 import com.gall.msu.nasagallery.api.GalleryItem
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.create
 
 class PhotoRepository {
-    private val flickrApi: FlickrApi
+    private val flickrApi: NasaApi
 
     init {
         val retrofit: Retrofit = Retrofit.Builder()
