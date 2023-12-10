@@ -16,11 +16,11 @@ class PhotoDataSource(
     ) {
         scope.launch {
             try {
-                val count = 1 // Initial page
+                val count = 1
                 val photos = repository.fetchPhotos(count)
                 callback.onResult(photos, null, count + 1)
             } catch (ex: Exception) {
-                // Handle exception
+                TODO("Not yet implemented")
             }
         }
     }
@@ -35,7 +35,7 @@ class PhotoDataSource(
                 val photos = repository.fetchPhotos(count)
                 callback.onResult(photos, count + 1)
             } catch (ex: Exception) {
-                // Handle exception
+                TODO("Not yet implemented")
             }
         }
     }
